@@ -44,7 +44,7 @@
 }
 
 .sticky-nav a:hover {
-    color: #2c3e2c;/* var(--accent-color) */
+    color: #527141;/* var(--accent-color) */
     transform: scale(1.05);
 }
 
@@ -71,4 +71,13 @@
   font-size: 14px;
   color: black;
   font-weight: 500;
+}
+
+.semester a {
+    color: black;
+}
+
+.semester a:hover {
+    color: #527141;/* var(--accent-color) */
+    transform: scale(1.05);
 }
