@@ -10,6 +10,7 @@
     transition: transform 0.3s ease;
     border-radius: 12px;
     text-align: right;
+    margin-bottom: 40px;
 }
 
 .sticky-nav ul {
@@ -55,7 +56,7 @@
 }
 
 .nav-left a {
-  font-size: 18px;
+  font-size: 20px;
   text-decoration: none;
   color: black;
 }
@@ -80,4 +81,50 @@
 .semester a:hover {
     color: #527141;/* var(--accent-color) */
     transform: scale(1.05);
+}
+
+/*.semester {
+    /*top: 0;*//*
+    backdrop-filter: blur(10px);
+    background-color: #a4c195; /* color-mix(in srgb, var(--card-background) 80%, transparent) */
+    /* z-index: 200; *//*
+    padding: 12 px;
+    border: 1px solid rgba(0, 0, 0, 0.2);/* 1px solid var(--border-color); *//*
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);/* 0 2px 4px var(--shadow-light); *//*
+    transition: all 0.4s ease;
+    border-radius: 12px;
+    will-change: transform, box-shadow;
+}*/
+
+.semesters {
+    /*margin-left: 10%;
+    width: 60%;*/
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.semester {
+    background-color: #a4c195 /*var(--card-background)*/;
+    border: 1px solid rgba(0, 0, 0, 0.2) /*var(--border-color)*/;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /*var(--shadow-light);*/
+    transition: all 0.4s ease;
+    will-change: transform, box-shadow;
+}
+
+.semester:hover {
+    transform: translateY(-10px) rotate(1deg);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.semester h3, h4 {
+    margin-bottom: 10px;
+    color: #527141; /*var(--accent-color);*/
+}
+
+.header, text {
+    margin-left: 10%;
+    margin-right: 10%;
 }
