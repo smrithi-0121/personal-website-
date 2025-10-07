@@ -3,11 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
         "political scientist", 
         "avocado afficiado",
         "data journalist", 
+        "higher education researcher",
         "critical thinker", 
-        "vibe coder"
+        "vibe coder", 
+        "writer", 
+        "web developer", 
+        "tech policy researcher", 
+        "data scientist"
     ];
     const typedTaglineEl = document.getElementById('typed-tagline');
-    let taglineIndex = 0;
+    let taglineIndex = 0; // see if you can randomize this
     let charIndex = 0;
     let isDeleting = false;
 
