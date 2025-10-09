@@ -6,29 +6,37 @@
     <title>resume</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        @font-face { font-family: "Gilroy"; src: url("../gilroy-font/Gilroy-Medium.ttf") format("truetype"); } 
+        @font-face { font-family: "Gilroy"; src: url("gilroy-font/Gilroy-Medium.ttf") format("truetype"); } 
         body {
             font-family: "Gilroy"
         }
     </style>
 </head>
-<body style = "background-color: #d0d5c8;">
+<body>
+    <div class="theme-toggle">
+        <input type="checkbox" id="theme-switch" hidden>
+        <label for="theme-switch" class="theme-toggle-icon">🌓</label>
+    </div>
+
     <nav class="sticky-nav">
         <div class="nav-container">
             <div class="nav-left">
                 <a href="index.html"><b>smrithi senthilnathan</b>  ⋆｡°✩🥑⋆｡°✩</a>
             </div>
             <ul class="nav-right">
-                <li><a href="bio.html" data-section="bio">bio</a></li>
+                <!-- <li><a href="bio.html" data-section="bio">bio</a></li> -->
                 <li><a href="projects.html" data-section="projects">projects</a></li>
                 <li><a href="timeline.html" data-section="timeline">timeline</a></li>
-                <li><a href="favorites.html" data-section="favorites">favorites</a></li>
+                <!-- <li><a href="favorites.html" data-section="favorites">favorites</a></li> -->
                 <li><a href="resume.html" data-section="resume">resume</a></li>
                 <li><a href="person.html" data-section="person">person</a></li>
             </ul>
         </div>
     </nav>
+
     resume!
     <!-- might take this section out though because i already have projects? think. -->
+
+    <script src="script.js" defer></script>    
 </body>
 </html>
