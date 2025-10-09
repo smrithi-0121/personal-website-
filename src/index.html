@@ -8,12 +8,26 @@
     <style>
         @font-face { font-family: "Gilroy"; src: url("../gilroy-font/Gilroy-Medium.ttf") format("truetype"); } 
         body {
-            font-family: "Gilroy"
+            font-family: "Gilroy", sans-serif;
         }
     </style>
 </head>
 
-<body style = "background-color: #d0d5c8;">
+<body>
+
+    <!--<div id="navbar"></div>
+    <script>
+        fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("navbar").innerHTML = data;
+            });
+    </script>   -->
+
+    <div class="theme-toggle">
+        <input type="checkbox" id="theme-switch" hidden>
+        <label for="theme-switch" class="theme-toggle-icon">🌓</label>
+    </div>
 
     <nav class="sticky-nav">
         <div class="nav-container">
@@ -21,32 +35,52 @@
                 <a href="index.html"><b>smrithi senthilnathan</b>  ⋆｡°✩🥑⋆｡°✩</a>
             </div>
             <ul class="nav-right">
-                <li><a href="bio.html" data-section="bio">bio</a></li>
+                <!-- <li><a href="bio.html" data-section="bio">bio</a></li> -->
                 <li><a href="projects.html" data-section="projects">projects</a></li>
                 <li><a href="timeline.html" data-section="timeline">timeline</a></li>
-                <li><a href="favorites.html" data-section="favorites">favorites</a></li>
+                <!-- <li><a href="favorites.html" data-section="favorites">favorites</a></li> -->
                 <li><a href="resume.html" data-section="resume">resume</a></li>
                 <li><a href="person.html" data-section="person">person</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="about-section">
-        <header class="header">
-            <div class="header-content">
-                <!--<img src="headshot.jpg" alt="Professional Headshot" class="profile-image">-->
-                <div class="header-text">
-                    <h1>smrithi senthilnathan</h1>
-                    <p class="tagline" id="typed-tagline">whimsical dreamer</p>
-                </div>
-            </div>
-            <div class="bio">
-                <p>hi! i'm smrithi. welcome to my corner of the internet :)</p>
-            </div>
-        </header>
-    </div>
+    <main class="grid">
 
-    <div class="description-container">
+        <div class="hero-text card">
+            <h2 class="tagline" id="typed-tagline">whimsical dreamer</h2>
+        </div>
+
+        <div class="portrait card">
+            <img src="" alt="professional headshot">
+        </div>
+
+        <div class="about card">
+            <p>hi! i'm smrithi, and i study political science and data science at uc berkeley. i like writing, coding, learning and reasoning. more tangibly, i'm interested in political intelligence, data-driven social sciences research, exploring pedagogical frameworks, computational linguistics and digital humanities.</p>
+        </div>
+
+        <div class="contact card">
+            <p class="small">have some questions?</p>
+            <h3>contact me</h3>
+        </div>
+
+        <aside class="projects card">
+            <div class="project-list">
+                <div class="project"><img src="project-intro.jpg"/><span>projects</span></div>
+                <div class="project"><span>technical</span></div>
+                <div class="project"><span>analytical</span></div>
+                <div class="project"><span>creative</span></div>
+            </div>
+        </aside>
+    </main>
+
+        <footer class="footer">
+            <a href="https://instagram.com">instagram</a>
+            <a href="https://x.com">twitter</a>
+            <a href="https://linkedin.com">linkedin</a>
+        </footer>
+
+    <!--<div class="description-container">
         <ul class="descriptions">
             <li>political scientist</li>
             <li>avocado afficiado</li>
@@ -58,7 +92,7 @@
         hi! i'm smrithi, and i study political science and data science at uc berkeley. i like writing, coding, learning and reasoning. more tangibly, i'm interested in political intelligence, data-driven social sciences research, exploring pedagogical frameworks, computational linguistics and digital humanities. 
     </div>
     <h1>hi! i'm smrithi.</h1>
-    <h2>welcome to my corner of the internet :)</h2>
+    <h2>welcome to my corner of the internet :)</h2>-->
 
     <script src="script.js"></script>
 </body>

@@ -12,7 +12,13 @@
         }
     </style>
 </head>
-<body style = "background-color: #d0d5c8;">
+<body>
+
+    <div class="theme-toggle">
+        <input type="checkbox" id="theme-switch" hidden>
+        <label for="theme-switch" class="theme-toggle-icon">🌓</label>
+    </div>
+
     <nav class="sticky-nav">
         <div class="nav-container">
             <div class="nav-left">
@@ -37,15 +43,15 @@
             <ul class="semester-container">
                 <h4>classes</h4>
                 <ul class="classes">
-                    <li><a href="https://ds100.org/fa25/">data c100: principles & techniques of data science</a></li>
-                    <li><a href="https://www.ocf.berkeley.edu/~asharma/Math54/">math 54: linear algebra & differential equations</a></li>
-                    <li><a href="https://classes.berkeley.edu/content/2025-fall-legalst-102-001-lec-001">legal studies 102: policing and society</a></li>
-                    <li><a href="https://classes.berkeley.edu/content/2025-fall-polsci-5-001-lec-001">political science 5: introduction to international relations</a></li>
-                    <li><a href="https://classes.berkeley.edu/content/2025-fall-latin-1-003-lec-003">latin 1: elementary latin</a></li>
-                    <li><a href="https://rdi.berkeley.edu/agentic-ai/f25">computer science 194: agentic ai</a></li>
-                    <li><a href="https://fullstackdecal.com/">computer science 198: introduction to full-stack development</a></li>
-                    <li><a href="https://cdss.berkeley.edu/discovery">computing, data science & society 198: data science discovery</a></li>
-                    <li><a href="https://classes.berkeley.edu/content/2025-fall-physed-1-032-lab-032">physical education 1: boxing fitness (non-contact) 1</a></li>
+                    <li><a href="https://ds100.org/fa25/">data c100:</a> principles & techniques of data science</li>
+                    <li><a href="https://www.ocf.berkeley.edu/~asharma/Math54/">math 54:</a> linear algebra & differential equations</li>
+                    <li><a href="https://classes.berkeley.edu/content/2025-fall-legalst-102-001-lec-001">legal studies 102:</a> policing and society</li>
+                    <li><a href="https://classes.berkeley.edu/content/2025-fall-polsci-5-001-lec-001">political science 5:</a> introduction to international relations</li>
+                    <li><a href="https://classes.berkeley.edu/content/2025-fall-latin-1-003-lec-003">latin 1:</a> elementary latin</li>
+                    <li><a href="https://rdi.berkeley.edu/agentic-ai/f25">computer science 194:</a> agentic ai</li>
+                    <li><a href="https://fullstackdecal.com/">computer science 198:</a> introduction to full-stack development</li>
+                    <li><a href="https://cdss.berkeley.edu/discovery">computing, data science & society 198:</a> data science discovery</li>
+                    <li><a href="https://classes.berkeley.edu/content/2025-fall-physed-1-032-lab-032">physical education 1:</a> boxing fitness (non-contact) 1</li>
                 </ul>
                 <h4>work</h4>
                 <ul class="work">
@@ -72,8 +78,8 @@
             <ul class="semester-container">
                 <h4>classes</h4>
                 <ul class="classes">
-                    <li><a href="https://cs61bl.org/">computer science 61b: data structures & algorithms</a></li>
-                    <li><a href="https://classes.berkeley.edu/content/2025-summer-polsci-w3-001-wbl-001">political science w3: introduction to empirical analysis and quantitative methods</a></li>
+                    <li><a href="https://cs61bl.org/">computer science 61b:</a> data structures & algorithms</li>
+                    <li><a href="https://classes.berkeley.edu/content/2025-summer-polsci-w3-001-wbl-001">political science w3:</a> introduction to empirical analysis and quantitative methods</li>
                 </ul>
                 <h4>work</h4>
                 <ul class="work">
@@ -156,5 +162,7 @@
             </ul>
         </div>
     </div>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
