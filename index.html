@@ -25,8 +25,10 @@
     </script>   -->
 
     <div class="theme-toggle">
-        <input type="checkbox" id="theme-switch" hidden>
-        <label for="theme-switch" class="theme-toggle-icon">🌓</label>
+        <input type="checkbox" id="theme-switch" class="theme-switch-input">
+        <label for="theme-switch" class="theme-toggle-icon">
+            <span class="theme-switch-icon">🌓</span>
+        </label>
     </div>
 
     <nav class="sticky-nav">
@@ -45,7 +47,90 @@
         </div>
     </nav>
 
-    <main class="grid">
+    <div class="container">
+        <div class="grid">
+            <!-- Hero Section - Top Left -->
+            <div class="item hero">
+                <svg class="decorative-flower" viewBox="0 0 100 100">
+                    <g stroke="currentColor" fill="none" stroke-width="1">
+                        <line x1="50" y1="50" x2="50" y2="10"/>
+                        <line x1="50" y1="50" x2="85" y2="25"/>
+                        <line x1="50" y1="50" x2="90" y2="50"/>
+                        <line x1="50" y1="50" x2="85" y2="75"/>
+                        <line x1="50" y1="50" x2="50" y2="90"/>
+                        <line x1="50" y1="50" x2="15" y2="75"/>
+                        <line x1="50" y1="50" x2="10" y2="50"/>
+                        <line x1="50" y1="50" x2="15" y2="25"/>
+                    </g>
+                </svg>
+                <h1>
+                    <h2 class="tagline" id="typed-tagline">whimsical dreamer</h2>
+                    <!--<div class="line1">Artist Redefining</div>
+                    <div class="line3">Architecture</div>
+                    <div class="line4">with</div>
+                    <div class="line4">AI-Driven Design</div>-->
+                </h1>
+            </div>
+
+            <!-- Profile Photo - Top Center -->
+            <div class="item profile">
+                <img src="assets/swans.jpg" alt="swans">
+            </div>
+
+            <!-- Projects Section - Right Side -->
+            <div class="item projects">
+                <div class="project-card with-image">
+                    <img src="assets/rippling-ocean.jpg" alt="rippling ocean">
+                    <div class="project-title">
+                        projects
+                        <span class="arrow">↗</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-title">
+                        technical
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-title">
+                        analytical
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-title">
+                        creative
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Section - Bottom Left -->
+            <div class="item about">
+                <svg class="decorative-star" viewBox="0 0 100 100">
+                    <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                    <circle cx="45" cy="15" r="2" fill="currentColor"/>
+                    <circle cx="65" cy="25" r="2.5" fill="currentColor"/>
+                    <circle cx="30" cy="40" r="2" fill="currentColor"/>
+                </svg>
+                <p>hi! i'm smrithi, and i study political science and data science at uc berkeley. i like writing, coding, learning and reasoning. more tangibly, i'm interested in political intelligence, data-driven social sciences research, exploring pedagogical frameworks, computational linguistics and digital humanities.</p>
+            </div>
+
+            <!-- Contact Section - Bottom Center -->
+            <div class="item contact">
+                <div>
+                    <div class="contact-label">have some questions?</div>
+                    <h2>contact me</h2>
+                </div>
+                <div class="social-links">
+                    <a href="#">INSTAGRAM</a>
+                    <a href="#">TWITTER</a>
+                    <a href="#">LINKEDIN</a>
+                </div>
+                <span class="arrow-icon">↗</span>
+            </div>
+        </div>
+    </div>
+
+    <!--<main class="grid">
 
         <section class="intro">
             <h2 class="tagline" id="typed-tagline">whimsical dreamer</h2>
@@ -87,7 +172,7 @@
     <h1 style="text-align: center;">go to <a href="timeline.html">timeline</a> because only that page looks pretty for now</h1>
 
     <h1>hi! i'm smrithi.</h1>
-    <h2>welcome to my corner of the internet :)</h2>
+    <h2>welcome to my corner of the internet :)</h2>-->
 
     <script src="script.js"></script>
 </body>
