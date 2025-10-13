@@ -380,6 +380,16 @@ hero h1 {
     }
   }
 
+
+.project-title a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.project-title a:hover {
+    color: var(--accent-color);
+    transform: scale(1.05);
+}
 .semester a {
     color: var(--text-color);
 }
@@ -389,28 +399,13 @@ hero h1 {
     transform: scale(1.05);
 }
 
-/*.semester {
-    /*top: 0;*//*
-    backdrop-filter: blur(10px);
-    background-color: #a4c195; /* color-mix(in srgb, var(--card-background) 80%, transparent) */
-    /* z-index: 200; *//*
-    padding: 12 px;
-    border: 1px solid rgba(0, 0, 0, 0.2);/* 1px solid var(--border-color); *//*
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);/* 0 2px 4px var(--shadow-light); *//*
-    transition: all 0.4s ease;
-    border-radius: 12px;
-    will-change: transform, box-shadow;
-}*/
-
 .semesters {
-    /*margin-left: 10%;
-    width: 60%;*/
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
-.semester {
+.semester, details {
     background-color: var(--card-background);
     border: 1px solid var(--border-color);
     padding: 20px;
@@ -443,11 +438,6 @@ hero h1 {
   z-index: 1000;
 }
 
-/*.theme-toggle-icon {
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}*/
 
 .theme-toggle-icon:hover {
     transform: scale(1.15) rotate(10deg);
@@ -459,7 +449,6 @@ hero h1 {
 
 .theme-toggle-icon {
     cursor: pointer;
-    /*background-color: var(--border-color);*/
     border-radius: 50%;
     padding: 10px;
     display: inline-block;
@@ -472,14 +461,6 @@ hero h1 {
 body.dark-mode .theme-toggle-icon {
     filter: brightness(1.2);
 }
-
-/*@media (max-width: 600px) {
-    .theme-toggle {
-        top: auto;
-        bottom: 25px;
-        right: 25px;
-    }
-}*/
 
 @media (max-width: 768px) {
   .nav-container {
@@ -494,3 +475,28 @@ body.dark-mode .theme-toggle-icon {
     }
 }
 
+summary {
+    list-style: none; 
+}
+
+summary {
+    background-color: var(--card-background);
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+details p {
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-top: none;
+}
+
+summary::before {
+    content: "+"; /* Plus icon for collapsed state */
+    margin-right: 5px;
+}
+
+details[open] summary::before {
+    content: "-"; /* Minus icon for expanded state */
+}

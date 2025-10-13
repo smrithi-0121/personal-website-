@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
             "writer", 
             "web developer", 
             "tech policy researcher", 
-            "data scientist"
+            "data scientist", 
+            "whimsical dreamer"
         ];
         let taglineIndex = 0;
         let charIndex = 0;
