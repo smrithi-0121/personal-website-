@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>projects</title>
+    <title>resume</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         @font-face { font-family: "Gilroy"; src: url("gilroy-font/Gilroy-Medium.ttf") format("truetype"); } 
@@ -36,37 +36,33 @@
         </div>
     </nav>
 
-    <h2 id="header">welcome to my projects!</h2>
-    <p id="content">here, i attempt to chronicle every single one of my undertakings from high school, divided into three categories that make up my interests <3</p>
+    <!-- Contact Form HTML -->
+    <div class="contact-form-container">
+        <h2>contact me!</h2>
+        <form id="contactForm" action="submit_form.php" method="POST">
+            <div class="form-group">
+                <label for="name">name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
 
-    <!--research closable drop downs! like in the psych sso one-->
-    <!--<section ic="technical">
-        <h4>technical</h4>
-    </section>-->
-    <details id="technical">
-        <summary><h4>technical</h4></summary>
-        <p>woo technical projects</p>
-        - byow
-        - ngordnet
-        - 2048
-        - scheme interpreter
-        - data discovery
-    </details>
+            <div class="form-group">
+                <label for="email">email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
 
-    <details id="analytical">
-        <summary><h4>analytical</h4></summary>
-        <p>yay analytical</p>
-        - dailycal
-        - gaza legislative scorecard 
-        - csk reddit project
-        - 
-    </details>
+            <div class="form-group">
+                <label for="subject">subject</label>
+                <input type="text" id="subject" name="subject">
+            </div>
 
-    <details id="creative">
-        <summary><h4>creative</h4></summary>
-        <p>This is the content that will be hidden and revealed.</p>
-    </details>
+            <div class="form-group">
+                <label for="message">message *</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
 
-    <script src="script.js" defer></script>
+            <button type="submit" class="submit-btn">say hi :)</button>
+        </form>
+    </div>
+    <script src="script.js" defer></script>    
 </body>
 </html>

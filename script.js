@@ -69,4 +69,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
         typeTagline();
     }
+
+    // ===== FORM SUBMISSION =====
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form values
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    
+    // Basic validation
+    if (!name || !email || !message) {
+        alert('Please fill in all required fields.');
+        return;
+    }
+    
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+    
+    // If validation passes, you can submit the form
+    // For now, just show a success message
+    alert('Thank you for your message! I will get back to you soon.');
+    this.reset();
+    
+    // To actually submit the form, uncomment this:
+    // this.submit();
+});
 });
