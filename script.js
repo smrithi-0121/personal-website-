@@ -82,23 +82,23 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Basic validation
     if (!name || !email || !message) {
-        alert('Please fill in all required fields.');
+        alert('please fill in all required fields so i know how to reach you!');
         return;
     }
     
     // Email validation
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
-        alert('Please enter a valid email address.');
+        alert('please enter a valid email address T_T');
         return;
     }
     
     // If validation passes, you can submit the form
     // For now, just show a success message
-    alert('Thank you for your message! I will get back to you soon.');
+    alert('thank you for reaching out, i\'ll be in touch <3');
     this.reset();
     
     // To actually submit the form, uncomment this:
-    // this.submit();
+    this.submit();
 });
 });
