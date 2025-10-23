@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ===== TYPING TAGLINES (only on index.html) =====
+    // ===== TYPING TAGLINES =====
     const typedTaglineEl = document.getElementById('typed-tagline');
     if (typedTaglineEl) {
         const taglines = [
@@ -74,31 +74,26 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Get form values
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
     
-    // Basic validation
     if (!name || !email || !message) {
         alert('please fill in all required fields so i know how to reach you!');
         return;
     }
     
-    // Email validation
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
         alert('please enter a valid email address T_T');
         return;
     }
     
-    // If validation passes, you can submit the form
-    // For now, just show a success message
+
     alert('thank you for reaching out, i\'ll be in touch <3');
     this.reset();
     
-    // To actually submit the form, uncomment this:
     this.submit();
 });
 });
