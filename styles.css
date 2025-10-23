@@ -383,15 +383,16 @@ hero h1 {
   }
 
 
-.project-title a, .arrow-icon a {
+.project-title a, .arrow-icon a, .contact-me a {
     color: var(--text-color);
     text-decoration: none;
 }
 
-.project-title a:hover, .arrow-icon a:hover {
+.project-title a:hover, .arrow-icon a:hover, .contact-me a:hover {
     color: var(--accent-color);
     transform: scale(1.05);
 }
+
 .semester a {
     color: var(--text-color);
 }
