@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projects</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @font-face { font-family: "Gilroy"; src: url("gilroy-font/Gilroy-Medium.ttf") format("truetype"); } 
+        body {
+            font-family: "Gilroy"
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-toggle">
+        <input type="checkbox" id="theme-switch" class="theme-switch-input">
+        <label for="theme-switch" class="theme-toggle-icon">
+            <span class="theme-switch-icon">🌓</span>
+        </label>
+    </div>
+
+    <nav class="sticky-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html"><b>smrithi senthilnathan</b>  ⋆｡°✩🥑⋆｡°✩</a>
+            </div>
+            <ul class="nav-right">
+                <!-- <li><a href="bio.html" data-section="bio">bio</a></li> -->
+                <li><a href="projects.html" data-section="projects">projects</a></li>
+                <li><a href="timeline.html" data-section="timeline">timeline</a></li>
+                <!-- <li><a href="favorites.html" data-section="favorites">favorites</a></li> -->
+                <li><a href="resume.html" data-section="resume">resume</a></li>
+                <li><a href="person.html" data-section="person">person</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <h2 id="header">welcome to my projects!</h2>
+    <p id="content">here, i attempt to chronicle every single one of my undertakings from high school, divided into three categories that make up my interests <3</p>
+
+    <!--research closable drop downs! like in the psych sso one-->
+    <details id="technical">
+        <summary><h4>technical</h4></summary>
+        <p>woo technical projects</p>
+        - byow
+        - ngordnet
+        - 2048
+        - scheme interpreter
+        - data discovery
+    </details>
+
+    <details id="analytical">
+        <summary><h4>analytical</h4></summary>
+        <p>yay analytical</p>
+        - dailycal
+        - gaza legislative scorecard 
+        - csk reddit project
+        - reproductive justice tracker
+    </details>
+
+    <details id="creative">
+        <summary><h4>creative</h4></summary>
+        <p>creative my bae</p>
+        - rts
+        - theunwrittenstories101
+        - i&i 
+        - publications
+    </details>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
