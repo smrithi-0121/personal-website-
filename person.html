@@ -1,87 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>person</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        @font-face { font-family: "Gilroy"; src: url("gilroy-font/Gilroy-Medium.ttf") format("truetype"); } 
-        body {
-            font-family: "Gilroy"
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>person — smrithi</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    @font-face {
+      font-family: "Gilroy";
+      src: url("gilroy-font/Gilroy-Medium.ttf") format("truetype");
+    }
+    body {
+      font-family: "Gilroy", sans-serif;
+    }
+
+    .person-page {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    .person-card {
+      background: var(--card-background);
+      border-radius: 24px;
+      padding: 30px 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .person-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px var(--shadow-light);
+    }
+
+    .hero-card {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .person-avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--border-color);
+      flex-shrink: 0;
+      background: var(--document-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+    .hero-text h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin: 0 0 4px;
+      color: var(--text-color);
+    }
+    .hero-text .tagline {
+      margin: 0 0 12px;
+      font-size: 13px;
+      color: var(--secondary-text);
+      letter-spacing: 0.04em;
+    }
+    .hero-text p {
+      margin: 0;
+      font-size: 15px;
+      color: var(--text-color);
+      line-height: 1.75;
+      opacity: 0.85;
+      max-width: 500px;
+    }
+
+    .facts-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .fact-card {
+      background: var(--card-background);
+      border-radius: 24px;
+      padding: 20px 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .fact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px var(--shadow-light);
+    }
+    .fact-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-color);
+      margin: 0 0 4px;
+      font-weight: 600;
+    }
+    .fact-value {
+      font-size: 14px;
+      color: var(--text-color);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .person-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .section-header .emoji { font-size: 1.1rem; line-height: 1; }
+    .section-header h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--accent-color);
+    }
+
+    .person-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .person-list li {
+      font-size: 14px;
+      color: var(--text-color);
+      line-height: 1.5;
+      padding-left: 12px;
+      border-left: 2px solid var(--accent-color);
+      opacity: 0.9;
+    }
+
+    .artist-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .artist-pill {
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      background: var(--document-color);
+      transition: all 0.3s ease;
+    }
+    .artist-pill:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      transform: scale(1.05);
+      cursor: default;
+    }
+
+    .rocco-card h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 20px;
+      color: var(--text-color);
+    }
+    .rocco-layout {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    .rocco-facts { flex: 1; min-width: 180px; }
+    .rocco-photos {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      flex: 2;
+    }
+    .rocco-photos img {
+      border-radius: 16px;
+      object-fit: cover;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      width: 200px;
+      height: 200px;
+    }
+    .rocco-photos img:last-child { height: 260px; }
+
+    @media (max-width: 768px) {
+      .person-page { padding: 0 15px 40px; }
+      .person-grid { grid-template-columns: 1fr; }
+      .hero-card { flex-direction: column; }
+      .rocco-photos img { width: 100%; height: 180px; }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="theme-toggle">
-        <input type="checkbox" id="theme-switch" class="theme-switch-input">
-        <label for="theme-switch" class="theme-toggle-icon">
-            <span class="theme-switch-icon">🌓</span>
-        </label>
+  <div class="theme-toggle">
+    <input type="checkbox" id="theme-switch" class="theme-switch-input">
+    <label for="theme-switch" class="theme-toggle-icon">
+      <span class="theme-switch-icon">🌓</span>
+    </label>
+  </div>
+
+  <nav class="sticky-nav">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="index.html"><b>smrithi senthilnathan</b> ⋆｡°✩🥑⋆｡°✩</a>
+      </div>
+      <ul class="nav-right">
+        <li><a href="projects.html" data-section="projects">projects</a></li>
+        <li><a href="timeline.html" data-section="timeline">timeline</a></li>
+        <li><a href="resume.html" data-section="resume">resume</a></li>
+        <li><a href="person.html" data-section="person">person</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="person-page">
+
+    <!-- ── hero ── -->
+    <div class="person-card hero-card">
+      <div class="person-avatar">🌿</div>
+      <div class="hero-text">
+        <h1>smrithi senthilnathan</h1>
+        <p class="tagline">political scientist · avocado afficianado · data journalist</p>
+        <p>i study political science and data science at uc berkeley. i'm drawn to questions about power, language, and how we know what we know. this page is the person behind the projects.</p>
+      </div>
     </div>
 
-    <nav class="sticky-nav">
-        <div class="nav-container">
-            <div class="nav-left">
-                <a href="index.html"><b>smrithi senthilnathan</b>  ⋆｡°✩🥑⋆｡°✩</a>
-            </div>
-            <ul class="nav-right">
-                <!-- <li><a href="bio.html" data-section="bio">bio</a></li> -->
-                <li><a href="projects.html" data-section="projects">projects</a></li>
-                <li><a href="timeline.html" data-section="timeline">timeline</a></li>
-                <!-- <li><a href="favorites.html" data-section="favorites">favorites</a></li> -->
-                <li><a href="resume.html" data-section="resume">resume</a></li>
-                <li><a href="person.html" data-section="person">person</a></li>
-            </ul>
+    <!-- ── quick facts ── -->
+    <div class="facts-strip">
+      <div class="fact-card">
+        <p class="fact-label">studying</p>
+        <p class="fact-value">political science, data science & legal studies @ uc berkeley</p>
+      </div>
+      <div class="fact-card">
+        <p class="fact-label">based in</p>
+        <p class="fact-value">berkeley, california</p>
+      </div>
+      <div class="fact-card">
+        <p class="fact-label">aspiring</p>
+        <p class="fact-value">researcher, lawyer & coder</p>
+      </div>
+      <div class="fact-card">
+        <p class="fact-label">loves</p>
+        <p class="fact-value">writing, chai & sitcoms</p>
+      </div>
+            <div class="fact-card">
+        <p class="fact-label">quirks</p>
+        <p class="fact-value">puzzles, tumblr posts, monkeytype</p>
+      </div>
+    </div>
+
+    <!-- ── two-column interest cards ── -->
+    <div class="person-grid">
+
+      <div class="person-card">
+        <div class="section-header">
+          <span class="emoji">📚</span>
+          <h3>currently reading</h3>
         </div>
-    </nav>
-
-    <div class="favorites">
-        <h2>favorites</h2>
-        <ul class="favorites-list">
-            <h4>artists & bands</h4>
-            <ul class="artists-and-bands">
-                <li>the band camino</li>
-                <li>why don't we</li>
-                <li>broadside</li>
-                <li>glass animals</li>
-                <li>nightly</li>
-                <li>knox</li>
-                <li>blackbear</li>
-                <li>dreamfone</li>
-                <li>jxdn</li>
-                <li>the maine</li>
-                <li>the 1975</li>
-                <li>olivia rodrigo</li>
-                <li>conan gray</li>
-                <li>gracie abrams</li>
-                <li>chappel roan</li>
-                <li>nessa barrett</li>
-                <li>halsey</li>
-            </ul>
+        <ul class="person-list">
+          <li>Cross My Heart — Megan Collins</li>
+          <li>Fist Stick Knife Gun — Geoffrey Canada</li>
+          <li>Abundance — Ezra Klein & Derek Thompson</li>
         </ul>
+      </div>
+
+      <div class="person-card">
+        <div class="section-header">
+          <span class="emoji">🌱</span>
+          <h3>learning lately</h3>
+        </div>
+        <ul class="person-list">
+          <li>agentic AI</li>
+          <li>copyright + antitrust law</li>
+          <li>explanations for mass incarceration</li>
+          <li>latin & italian</li>
+        </ul>
+      </div>
+
+      <div class="person-card">
+        <div class="section-header">
+          <span class="emoji">💭</span>
+          <h3>thinking about</h3>
+        </div>
+        <ul class="person-list">
+          <li>how language shapes political imagination</li>
+          <li>what good pedagogy actually looks like</li>
+          <li>the tension between data and narrative</li>
+          <li>third places and community infrastructure</li>
+        </ul>
+      </div>
+
+      <div class="person-card">
+        <div class="section-header">
+          <span class="emoji">🎵</span>
+          <h3>artists &amp; bands</h3>
+        </div>
+        <div class="artist-cloud">
+          <span class="artist-pill">the band camino</span>
+          <span class="artist-pill">why don't we</span>
+          <span class="artist-pill">broadside</span>
+          <span class="artist-pill">glass animals</span>
+          <span class="artist-pill">nightly</span>
+          <span class="artist-pill">knox</span>
+          <span class="artist-pill">blackbear</span>
+          <span class="artist-pill">dreamfone</span>
+          <span class="artist-pill">jxdn</span>
+          <span class="artist-pill">the maine</span>
+          <span class="artist-pill">the 1975</span>
+          <span class="artist-pill">olivia rodrigo</span>
+          <span class="artist-pill">conan gray</span>
+          <span class="artist-pill">gracie abrams</span>
+          <span class="artist-pill">chappell roan</span>
+          <span class="artist-pill">nessa barrett</span>
+          <span class="artist-pill">halsey</span>
+        </div>
+      </div>
+
     </div>
 
-    <div class="rocco">
-        <h2>meet my dog rocco!</h2>
-        <ul class="rocco-facts">
-            <h4>facts</h4>
-            <ul class="facts">
-                <li>he's a beagle!</li>
-                <li>he's four and a half years old :))</li>
-                <li>he was born in chennai, india</li>
-                <li>he flew from india to america all by himself!! he's such a brave boy </li>
-            </ul>
-            <h4>photos</h4>
-            <ul class="rocco-photos">
-                <img src="assets/rocco1.jpg" width="300px" height="300px">
-                <img src="assets/rocco2.jpg" width="300px" height="300px">
-                <img src="assets/rocco3.jpg" width="300px" height="400px">
-            </ul>
-        </ul>
+    <div class="person-card rocco-card">
+      <h2>meet my dog rocco! 🐶</h2>
+      <div class="rocco-layout">
+        <div class="rocco-facts">
+          <ul class="person-list">
+            <li>he's a beagle!</li>
+            <li>he's four and a half years old :))</li>
+            <li>he was born in chennai, india</li>
+            <li>he flew from india to america all by himself!! he's such a brave boy</li>
+          </ul>
+        </div>
+        <div class="rocco-photos">
+          <img src="assets/rocco1.jpg" alt="rocco photo 1">
+          <img src="assets/rocco2.jpg" alt="rocco photo 2">
+          <img src="assets/rocco3.jpg" alt="rocco photo 3">
+        </div>
+      </div>
     </div>
 
-    <script src="script.js" defer></script>
+  </main>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
