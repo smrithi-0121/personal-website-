@@ -1,44 +1,514 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>resume</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        @font-face { font-family: "Gilroy"; src: url("gilroy-font/Gilroy-Medium.ttf") format("truetype"); } 
-        body {
-            font-family: "Gilroy"
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>resume — smrithi</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    @font-face {
+      font-family: "Gilroy";
+      src: url("gilroy-font/Gilroy-Medium.ttf") format("truetype");
+    }
+    body {
+      font-family: "Gilroy", sans-serif;
+    }
+
+    .resume-page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* ── section header row with horizontal rule ── */
+    .sec-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 0 0 20px;
+    }
+    .sec-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-color);
+      white-space: nowrap;
+      margin: 0;
+    }
+    .sec-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--border-color);
+      border: none;
+      margin: 0;
+    }
+
+    .sec-sub {
+      font-size: 14px;
+      color: var(--secondary-text);
+      margin: -14px 0 20px;
+    }
+
+    .spacer {
+      height: 32px;
+    }
+
+    /* ── cards ── */
+    .w-item {
+      background: var(--card-background);
+      border-radius: 24px;
+      padding: 28px 32px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .w-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px var(--shadow-light);
+    }
+
+    .w-item, .sk-group {
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25); /* was 0.6 opacity — too heavy */
+    }
+
+    .w-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 3px;
+      flex-wrap: wrap;
+    }
+    .w-co {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-color);
+    }
+    .w-date {
+      font-size: 12px;
+      color: var(--secondary-text);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+    .w-role {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-bottom: 2px;
+    }
+    .w-loc {
+      font-size: 12px;
+      color: var(--secondary-text);
+      margin-bottom: 12px;
+    }
+    .w-body {
+      font-size: 14px;
+      color: var(--text-color);
+      line-height: 1.75;
+      opacity: 0.9;
+      margin-bottom: 14px;
+      padding-left: 0;
+    }
+    /* bullet list inside w-body */
+    .w-body ul {
+      margin: 0;
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .w-body ul li {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .w-body a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .w-body a:hover {
+      opacity: 0.75;
+    }
+
+    /* tags */
+    .w-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .w-tags span {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 6px;
+      background: var(--document-color);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      opacity: 0.85;
+    }
+
+    /* skills */
+    .sk-group {
+      background: var(--card-background);
+      border-radius: 24px;
+      padding: 20px 32px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .sk-group:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px var(--shadow-light);
+    }
+    .sk-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent-color);
+      min-width: 120px;
+      padding-top: 4px;
+    }
+    .sk-group .w-tags { flex: 1; }
+
+    /* fade-in */
+    .fi {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.45s ease forwards;
+    }
+    .fi:nth-child(1)  { animation-delay: 0.04s; }
+    .fi:nth-child(2)  { animation-delay: 0.08s; }
+    .fi:nth-child(3)  { animation-delay: 0.12s; }
+    .fi:nth-child(4)  { animation-delay: 0.16s; }
+    .fi:nth-child(5)  { animation-delay: 0.20s; }
+    .fi:nth-child(6)  { animation-delay: 0.24s; }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .resume-page { padding: 0 15px 40px; }
+      .w-item, .sk-group { padding: 22px 18px; }
+      .sk-group { flex-direction: column; gap: 8px; }
+      .sk-label { min-width: unset; }
+      .sec-title { font-size: 22px; }
+    }
+
+    /* ── collapsible section ── */
+    .sec-toggle {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: "Gilroy", sans-serif;
+    padding: 0;
+    }
+
+    .sec-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0 0 20px;
+    cursor: pointer;
+    user-select: none;
+    }
+    .sec-header:hover .sec-title {
+    color: var(--accent-color);
+    transition: color 0.2s ease;
+    }
+
+    .sec-chevron {
+    font-size: 14px;
+    color: var(--secondary-text);
+    transition: transform 0.3s ease;
+    margin-left: 4px;
+    flex-shrink: 0;
+    }
+
+    /* rotates when section is open */
+    .sec-header.open .sec-chevron {
+    transform: rotate(180deg);
+    }
+
+    /* the collapsible content wrapper */
+    .sec-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s ease, opacity 0.3s ease;
+    opacity: 0;
+    }
+    .sec-body.open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    }
+    /* required inner wrapper for grid collapse to work */
+    .sec-body-inner {
+    overflow: hidden;
+    }
+  </style>
 </head>
 <body>
-    <div class="theme-toggle">
-        <input type="checkbox" id="theme-switch" class="theme-switch-input">
-        <label for="theme-switch" class="theme-toggle-icon">
-            <span class="theme-switch-icon">🌓</span>
-        </label>
+
+  <div class="theme-toggle">
+    <input type="checkbox" id="theme-switch" class="theme-switch-input">
+    <label for="theme-switch" class="theme-toggle-icon">
+      <span class="theme-switch-icon">🌓</span>
+    </label>
+  </div>
+
+  <nav class="sticky-nav">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="index.html"><b>smrithi senthilnathan</b> ⋆｡°✩🥑⋆｡°✩</a>
+      </div>
+      <ul class="nav-right">
+        <li><a href="projects.html" data-section="projects">projects</a></li>
+        <li><a href="timeline.html" data-section="timeline">timeline</a></li>
+        <li><a href="resume.html" data-section="resume">resume</a></li>
+        <li><a href="person.html" data-section="person">person</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="resume-page">
+
+    <!-- ══ EDUCATION ══════════════════════════════════════ -->
+    <div class="sec-header fi" onclick="toggleSection(this)">
+        <h2 class="sec-title">Education</h2>
+        <hr class="sec-rule">
+        <span class="sec-chevron">▼</span>
+        </div>
+
+        <div class="sec-body open"> <!-- 'open' by default so page doesn't look empty on load -->
+              <div class="sec-body-inner">
+
+                <div class="w-item fi">
+                <div class="w-top">
+                    <span class="w-co">University of California, Berkeley</span>
+                    <span class="w-date">08/2024 – 05/2028</span>
+                </div>
+                <div class="w-role">B.A. Data Science &amp; Political Science — GPA: 3.82, Senior Standing</div>
+                <div class="w-loc">Berkeley, CA</div>
+                <div class="w-body">
+                    <ul>
+                    <li>Relevant Coursework: Data Structures &amp; Algorithms, Linear Algebra, Structure of Computer Programs, Foundations &amp; Principles of Data Science, Technology Society &amp; Power, Statistical Methods for Political Science</li>
+                    </ul>
+                </div>
+                </div>
+              </div>
     </div>
 
-    <nav class="sticky-nav">
-        <div class="nav-container">
-            <div class="nav-left">
-                <a href="index.html"><b>smrithi senthilnathan</b>  ⋆｡°✩🥑⋆｡°✩</a>
-            </div>
-            <ul class="nav-right">
-                <!-- <li><a href="bio.html" data-section="bio">bio</a></li> -->
-                <li><a href="projects.html" data-section="projects">projects</a></li>
-                <li><a href="timeline.html" data-section="timeline">timeline</a></li>
-                <!-- <li><a href="favorites.html" data-section="favorites">favorites</a></li> -->
-                <li><a href="resume.html" data-section="resume">resume</a></li>
-                <li><a href="person.html" data-section="person">person</a></li>
-            </ul>
+    <div class="spacer"></div>
+
+    <!-- ══ EXPERIENCE ═════════════════════════════════════ -->
+    <div class="sec-header fi" onclick="toggleSection(this)">
+        <h2 class="sec-title">Experience</h2>
+        <hr class="sec-rule">
+        <span class="sec-chevron">▼</span>
         </div>
-    </nav>
 
-    resume!
-    <!-- might take this section out though because i already have projects? think. -->
+        <div class="sec-body open"> <!-- 'open' by default so page doesn't look empty on load -->
+              <div class="sec-body-inner">
 
-    <script src="script.js" defer></script>    
+    <div class="w-item fi">
+      <div class="w-top">
+        <span class="w-co">AAPI Data – Institute of Social Issues</span>
+        <span class="w-date">06/2025 – Present</span>
+      </div>
+      <div class="w-role">Policy &amp; Programs Intern</div>
+      <div class="w-loc">Berkeley, CA</div>
+      <div class="w-body">
+        <ul>
+          <li>Assist with policy research including literature reviews on AAPI issues, AI in education, and education accessibility.</li>
+          <li>Analyze large datasets from IPUMS and survey data to create graphs on Flourish highlighting policy priorities.</li>
+          <li>Helped with operations and logistics for AAPI Data's inaugural Bolder Futures Fellowship — reading 150+ applications, conducting interviews and reference checks, and building curriculum.</li>
+          <li>Organized Student Showcase event to highlight student research; booked venue and facilitated RSVPs.</li>
+        </ul>
+      </div>
+      <div class="w-tags">
+        <span>Python</span><span>IPUMS</span><span>Flourish</span><span>Policy Research</span><span>Data Analysis</span>
+      </div>
+    </div>
+
+    <div class="w-item fi">
+      <div class="w-top">
+        <span class="w-co">The Daily Californian</span>
+        <span class="w-date">06/2025 – Present</span>
+      </div>
+      <div class="w-role">Data Reporter · Incoming Deputy Editor (SP26)</div>
+      <div class="w-loc">Berkeley, CA</div>
+      <div class="w-body">
+        <ul>
+          <li>Create data-driven investigative research projects for one of the west coast's oldest newspapers.</li>
+          <li>Analyzed 7 years of ASUC election datasets to uncover correlation between funding allocations and voter turnout; <a href="#">published findings</a> in widely circulated campus newspaper.</li>
+          <li>Researched 2022 compact between UC and CA governor; compiled tuition and admissions data for the UC system over the last decade to uncover trends — <a href="#">read here</a>.</li>
+          <li>Created a force simulation of all Berkeley clubs receiving university funding using d3.js — <a href="#">read here</a>.</li>
+        </ul>
+      </div>
+      <div class="w-tags">
+        <span>d3.js</span><span>Data Journalism</span><span>Investigative Research</span><span>Python</span><span>Pandas</span>
+      </div>
+    </div>
+
+    <div class="w-item fi">
+      <div class="w-top">
+        <span class="w-co">CITRIS and the Banatao Institute Tech Policy Initiative</span>
+        <span class="w-date">09/2025 – 12/2025</span>
+      </div>
+      <div class="w-role">Tech Policy Researcher</div>
+      <div class="w-loc">Berkeley, CA</div>
+      <div class="w-body">
+        <ul>
+          <li>Team of 6 — researched AI overreach and data privacy in social networking sites.</li>
+          <li>Drafted a policy memo to inform regulation on AI safety incident reporting and data privacy in California.</li>
+          <li>Created a resource toolkit containing actionable insights for users to protect data online.</li>
+          <li>Presented research at UC Berkeley Data, Democracy and Design symposium in front of key stakeholders.</li>
+        </ul>
+      </div>
+      <div class="w-tags">
+        <span>Policy Research</span><span>AI Safety</span><span>Data Privacy</span><span>Technical Writing</span>
+      </div>
+    </div>
+
+    <div class="w-item fi">
+      <div class="w-top">
+        <span class="w-co">Political Computer Science</span>
+        <span class="w-date">12/2024 – Present</span>
+      </div>
+      <div class="w-role">Education Chair · Incoming External Vice President (SP26)</div>
+      <div class="w-loc">Berkeley, CA</div>
+      <div class="w-body">
+        <ul>
+          <li>Developed bootcamp curriculum in Python for 30+ new members; integrated DS + policy case studies, improving member retention by 40%.</li>
+          <li>Organized workshops focused on data privacy, digital rights, and other tech policy topics.</li>
+          <li>Collaborated with 9-member board for successful functioning of 150-member club focused on interdisciplinary use of data science for large-scale social science projects; oversaw applications, interviews and deliberations.</li>
+        </ul>
+      </div>
+      <div class="w-tags">
+        <span>Python</span><span>Curriculum Design</span><span>Leadership</span><span>Tech Policy</span>
+      </div>
+    </div>
+              </div>
+        </div>
+
+    <div class="spacer"></div>
+
+    <!-- ══ PROJECTS ════════════════════════════════════════ -->
+    <div class="sec-header fi" onclick="toggleSection(this)">
+        <h2 class="sec-title">Projects</h2>
+        <hr class="sec-rule">
+        <span class="sec-chevron">▼</span>
+        </div>
+
+       <div class="sec-body open"> <!-- 'open' by default so page doesn't look empty on load -->
+              <div class="sec-body-inner">
+
+    <div class="w-item fi">
+      <div class="w-top">
+        <span class="w-co">Analysis of Generative AI Policy Across College Syllabi</span>
+        <span class="w-date">08/2025 – Present</span>
+      </div>
+      <div class="w-body">
+        <ul>
+          <li>Scraped over 75,000 publicly available syllabi, analyzing data using NLP techniques to research generative AI policies and their variations across institutions.</li>
+          <li>Extracted text using Regex, experimented with supervised and unsupervised classification algorithms, and used k-means clustering to group policies.</li>
+          <li>Created visualizations including confusion matrices, stacked bar charts, and layered pie charts to simplify findings.</li>
+          <li>Presented with <strong>Research Storytelling Award</strong> (1 out of 50+ teams) at UC Berkeley CDSS Symposium.</li>
+        </ul>
+      </div>
+      <div class="w-tags">
+        <span>Python</span><span>NLP</span><span>Pandas</span><span>ML</span><span>Seaborn</span><span>Regex</span><span>k-means</span>
+      </div>
+    </div>
+
+    <div class="w-item fi">
+      <div class="w-top">
+        <span class="w-co">Reproductive Rights Tracker</span>
+        <span class="w-date">06/2025 – 12/2025</span>
+      </div>
+      <div class="w-body">
+        <ul>
+          <li>Led team of 7 to build a website centralizing reproductive justice resources and information.</li>
+          <li>Created an interactive map to visualize abortion clinics across California and highlight key services offered.</li>
+        </ul>
+      </div>
+      <div class="w-tags">
+        <span>HTML/CSS</span><span>JavaScript</span><span>Svelte</span><span>Leaflet</span><span>GeoJSON</span>
+      </div>
+    </div>
+
+    <div class="w-item fi">
+      <div class="w-top">
+        <span class="w-co">Build Your Own World</span>
+        <span class="w-date">07/2025 – 08/2025</span>
+      </div>
+      <div class="w-body">
+        <ul>
+          <li>Developed a tile-based game with deterministic map generation using seeded randomization.</li>
+          <li>Implemented viewport rendering, avatar movement, and file I/O for save/load functionality.</li>
+          <li>Applied graph-based algorithms to connect generated rooms with traversable hallways.</li>
+        </ul>
+      </div>
+      <div class="w-tags">
+        <span>Java</span><span>File I/O</span><span>Graph Algorithms</span>
+      </div>
+    </div>
+
+    <div class="w-item fi">
+      <div class="w-top">
+        <span class="w-co">Legislative Scorecard</span>
+        <span class="w-date">09/2024 – 12/2024</span>
+      </div>
+      <div class="w-body">
+        <ul>
+          <li>Team of 7 — analyzed Senate bills over 2 years to build a legislative scorecard for U.S. Senators.</li>
+          <li>Helped create a website hosting the scorecard, tracking Senators' stances on policies based on user responses on a scale of 1 to -1.</li>
+        </ul>
+      </div>
+      <div class="w-tags">
+        <span>Python</span><span>Supabase</span><span>Pandas</span><span>HTML</span>
+      </div>
+    </div>
+              </div>
+       </div>
+    <div class="spacer"></div>
+
+    <!-- ══ SKILLS ══════════════════════════════════════════ -->
+    <div class="sec-header fi" onclick="toggleSection(this)">
+        <h2 class="sec-title">Skills</h2>
+        <hr class="sec-rule">
+        <span class="sec-chevron">▼</span>
+        </div>
+
+       <div class="sec-body open"> <!-- 'open' by default so page doesn't look empty on load -->
+              <div class="sec-body-inner">
+
+    <div class="sk-group fi">
+      <div class="sk-label">Languages</div>
+      <div class="w-tags">
+        <span>English</span><span>Tamil</span><span>Hindi</span><span>French</span><span>Spanish</span><span>Sanskrit</span><span>Latin</span>
+      </div>
+    </div>
+
+    <div class="sk-group fi">
+      <div class="sk-label">Technical</div>
+      <div class="w-tags">
+        <span>Python</span><span>Java</span><span>SQL</span><span>HTML/CSS</span><span>JavaScript</span><span>React</span><span>Svelte</span><span>Scheme</span><span>R</span>
+      </div>
+    </div>
+
+    <div class="sk-group fi">
+      <div class="sk-label">Libraries</div>
+      <div class="w-tags">
+        <span>NumPy</span><span>Pandas</span><span>Matplotlib</span><span>Seaborn</span><span>d3.js</span><span>NLTK</span><span>Beautiful Soup</span><span>TKinter</span><span>JUnit</span>
+      </div>
+    </div>
+              </div>
+       </div>
+
+  </main>
+
+  <script src="script.js" defer></script>
 </body>
 </html>

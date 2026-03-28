@@ -164,6 +164,19 @@
       cursor: default;
     }
 
+    .section-header a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.3s ease;
+    }
+
+    .section-header a:hover {
+        opacity: 0.7;
+        color: var(--text-color);
+        transform: scale(1.05);
+    }
+
     .rocco-card h2 {
       font-size: 20px;
       font-weight: 700;
@@ -265,13 +278,14 @@
 
       <div class="person-card">
         <div class="section-header">
-          <span class="emoji">📚</span>
-          <h3>currently reading</h3>
+          <span class="emoji">💭</span>
+          <h3>currently consuming</h3>
         </div>
         <ul class="person-list">
-          <li>Cross My Heart — Megan Collins</li>
-          <li>Fist Stick Knife Gun — Geoffrey Canada</li>
-          <li>Abundance — Ezra Klein & Derek Thompson</li>
+          <li>📖 cross my heart — megan collins</li>
+          <li>📖 abundance — ezra klein & derek thompson</li>
+          <li>🎶 del water gap — del water gap</li>
+          <li>🎬 money heist / la casa de papel</li>
         </ul>
       </div>
 
@@ -290,21 +304,23 @@
 
       <div class="person-card">
         <div class="section-header">
-          <span class="emoji">💭</span>
-          <h3>thinking about</h3>
+          <span class="emoji">📚</span>
+          <h3><a href="https://www.goodreads.com/user/show/142369434-smrithi">fav reads</a></h3>
         </div>
         <ul class="person-list">
-          <li>how language shapes political imagination</li>
-          <li>what good pedagogy actually looks like</li>
-          <li>the tension between data and narrative</li>
-          <li>third places and community infrastructure</li>
+          <li>as long as the lemon trees grow — zoulfa katouh</li>
+          <li>ella minnow pea — mark dunn</li>
+          <li>blood water paint — joy mccullough</li>
+          <li>salt to the sea — ruta sepetys</li>
+          <li>all of us villains — amanda foody and christine lynn herman</li>
+          <li>how to survive your murder — danielle valentine</li>
         </ul>
       </div>
 
       <div class="person-card">
         <div class="section-header">
           <span class="emoji">🎵</span>
-          <h3>artists &amp; bands</h3>
+          <h3><a href="https://open.spotify.com/user/yj9c7iqrzpcrgo6n6r4egdyfo?si=b9fbcaa343e14cd7">artists &amp; bands</a></h3>
         </div>
         <div class="artist-cloud">
           <span class="artist-pill">the band camino</span>

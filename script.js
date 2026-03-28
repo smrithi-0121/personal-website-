@@ -95,5 +95,61 @@ document.addEventListener('DOMContentLoaded', () => {
     this.reset();
     
     this.submit();
+
+    
 });
 });
+
+// ── smooth page transitions ──────────────────────────────
+document.querySelectorAll('a[href]').forEach(link => {
+  const href = link.getAttribute('href');
+
+  // only intercept internal .html links (not anchors, mailto, external)
+  if (!href || href.startsWith('#') || href.startsWith('mailto') || href.startsWith('http')) return;
+
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    document.body.classList.add('fade-out');
+    setTimeout(() => { window.location.href = href; }, 260);
+  });
+});
+
+// ── staggered .fi fade-in on page load ───────────────────
+document.querySelectorAll('.fi').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.animation = `fadeUp 0.45s ease forwards ${i * 0.05}s`;
+});
+
+// ── active nav link highlight ────────────────────────────
+const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+document.querySelectorAll('.nav-right a').forEach(a => {
+  if (a.getAttribute('href') === currentPage) {
+    a.style.color = 'var(--accent-color)';
+    a.style.fontWeight = '700';
+  }
+});
+
+function toggleSection(header) {
+  const body = header.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+
+  header.classList.toggle('open', !isOpen);
+  body.classList.toggle('open', !isOpen);
+}
+
+// // ── theme toggle ─────────────────────────────────────────
+// const toggle = document.getElementById('theme-switch');
+// const saved  = localStorage.getItem('theme');
+
+// if (saved === 'dark') {
+//   document.body.classList.add('dark-mode');
+//   if (toggle) toggle.checked = true;
+// }
+
+// if (toggle) {
+//   toggle.addEventListener('change', () => {
+//     document.body.classList.toggle('dark-mode');
+//     localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+//   });
+// }
